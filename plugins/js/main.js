@@ -138,6 +138,59 @@ $(document).ready(function () {
 
 // faq 
 
+// WhatsApp contact toggle
+const whatsappWidget = document.createElement('div');
+whatsappWidget.className = 'whatsapp-widget';
+whatsappWidget.innerHTML = `
+  <div class="whatsapp-panel" id="whatsapp-panel" role="region" aria-label="WhatsApp contact" hidden>
+    <p class="whatsapp-panel-title">Chat with us on WhatsApp</p>
+    <p class="whatsapp-panel-number">+91 951540 3872</p>
+    <a class="whatsapp-chat-link" href="https://wa.me/919515403872" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+      <span>Start a chat</span>
+    </a>
+  </div>
+  <button class="whatsapp-toggle" type="button" aria-expanded="false" aria-controls="whatsapp-panel" aria-label="Open WhatsApp chat">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </button>
+`;
+const socialLinks = document.querySelector('.social_fixed_icons .f_s_i');
+if (socialLinks) {
+  const whatsappListItem = document.createElement('li');
+  whatsappListItem.appendChild(whatsappWidget);
+  socialLinks.appendChild(whatsappListItem);
+} else {
+  whatsappWidget.classList.add('whatsapp-widget--standalone');
+  document.body.appendChild(whatsappWidget);
+}
+
+const whatsappToggle = whatsappWidget.querySelector('.whatsapp-toggle');
+const whatsappPanel = whatsappWidget.querySelector('.whatsapp-panel');
+
+whatsappToggle.addEventListener('click', () => {
+  const isExpanded = whatsappToggle.getAttribute('aria-expanded') === 'true';
+  whatsappToggle.setAttribute('aria-expanded', String(!isExpanded));
+  whatsappToggle.setAttribute('aria-label', isExpanded ? 'Open WhatsApp chat' : 'Close WhatsApp chat');
+  whatsappPanel.hidden = isExpanded;
+});
+
+document.addEventListener('click', event => {
+  if (!whatsappWidget.contains(event.target) && !whatsappPanel.hidden) {
+    whatsappPanel.hidden = true;
+    whatsappToggle.setAttribute('aria-expanded', 'false');
+    whatsappToggle.setAttribute('aria-label', 'Open WhatsApp chat');
+  }
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !whatsappPanel.hidden) {
+    whatsappPanel.hidden = true;
+    whatsappToggle.setAttribute('aria-expanded', 'false');
+    whatsappToggle.setAttribute('aria-label', 'Open WhatsApp chat');
+    whatsappToggle.focus();
+  }
+});
+
 document.querySelectorAll('.faq-item').forEach(item => {
   const q = item.querySelector('.faq-q');
   const a = item.querySelector('.faq-a');

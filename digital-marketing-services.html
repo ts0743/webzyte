@@ -23,6 +23,20 @@
     <link rel="stylesheet" href="plugins/css/main.css">
     <link rel="stylesheet" href="plugins/css/responsive.css">
 
+    <!-- Alignment fix: image and heading start at the same top line on desktop -->
+    <style>
+        @media (min-width: 992px) {
+            #about .dm_img {
+                margin-top: 0 !important;
+            }
+
+            #about .dm_text .abt_h {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+        }
+    </style>
+
 </head>
 
 <body class="thetop">
@@ -62,7 +76,7 @@
                     <li><a href="about.html"> About Us </a></li>
                     <li><a href="web-design-services.html"> Web Design Services </a></li>
                     <li class="active"><a href="digital-marketing-services.html"> Digital Marketing Services </a></li>
-                    <li><a href="reseller-program.html">Reseller Program</a></li>
+                    <li><a href="reseller-program.html">Resellar Program</a></li>
                     <li><a href="digital-ventures.html">Digital Ventures</a></li>
                     <li><a href="portfolio.html"> Case Studies </a></li>
                     <li><a href="blog.html">Blog</a></li>
@@ -101,9 +115,9 @@
 
                 <div class="row" id="responsive_column_reverse">
                     <div class="col-md-6">
-                        <img class="img-responsive" src="images/webzyte-reseller-image.jpg" id="abt_img" />
+                        <img class="img-responsive dm_img" src="images/2nd%20image%20.jpeg" id="abt_img" />
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 dm_text">
                         <h1 class="abt_h"> Digital Marketing Agency in Hyderabad </h1>
                         <p class="abt_p"> A website without traffic is just a file sitting on a server. We run SEO, paid ads, and social media as one strategy so the site we build (or the one you already have) actually gets in front of people who are looking for what you sell. </p>
                         <h2 class="abt_ssh"> Search Engine Optimization (SEO) </h2>
