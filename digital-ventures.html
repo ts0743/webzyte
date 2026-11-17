@@ -27,6 +27,20 @@
     <link rel="stylesheet" href="plugins/css/responsive.css">
     <link rel="stylesheet" href="plugins/css/digital-ventures.css">
 
+    <!-- Alignment fix: image and heading start at the same top line on desktop -->
+    <style>
+        @media (min-width: 992px) {
+            #about .dv_img {
+                margin-top: 0 !important;
+            }
+
+            #about .dv_text .abt_h {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+        }
+    </style>
+
 </head>
 
 
@@ -136,7 +150,7 @@
                     <li><a href="about.html"> About Us </a></li>
                     <li><a href="web-design-services.html"> Web Design Services </a></li>
                     <li><a href="digital-marketing-services.html"> Digital Marketing Services </a></li>
-                    <li><a href="reseller-program.html">Reseller Program</a></li>
+                    <li><a href="reseller-program.html">Resellar Program</a></li>
                     <li class="active"><a href="digital-ventures.html">Digital Ventures</a></li>
                     <li><a href="portfolio.html"> Case Studies </a></li>
                     <li><a href="blog.html">Blog</a></li>
@@ -238,15 +252,15 @@
 
                     <div class="col-md-6">
 
-                        <img class="img-responsive"
-                             src="images/digital-ventures.png"
+                        <img class="img-responsive dv_img"
+                             src="images/4th%20image.jpg"
                              id="abt_img"
                              alt="Digital Ventures">
 
                     </div>
 
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 dv_text">
 
 
                         <h1 class="abt_h">

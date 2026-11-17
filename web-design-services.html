@@ -23,6 +23,26 @@
     <link rel="stylesheet" href="plugins/css/main.css">
     <link rel="stylesheet" href="plugins/css/responsive.css">
 
+    <!-- Alignment fix: image and heading start at the same top line on desktop -->
+    <style>
+        @media (min-width: 992px) {
+            #about .wd_img {
+                margin-top: 0 !important;
+            }
+
+            #about .wd_text .abt_h {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+        }
+
+        @media (max-width: 991px) {
+            #about .wd_img {
+                margin-top: 22px;
+            }
+        }
+    </style>
+
 </head>
 
 <body class="thetop">
@@ -62,7 +82,7 @@
                     <li><a href="about.html"> About Us </a></li>
                     <li class="active"><a href="web-design-services.html"> Web Design Services </a></li>
                     <li><a href="digital-marketing-services.html"> Digital Marketing Services </a></li>
-                    <li><a href="reseller-program.html">Reseller Program</a></li>
+                    <li><a href="reseller-program.html">Resellar Program</a></li>
                     <li><a href="digital-ventures.html">Digital Ventures</a></li>
                     <li><a href="portfolio.html"> Case Studies </a></li>
                     <li><a href="blog.html">Blog</a></li>
@@ -101,9 +121,9 @@
 
                 <div class="row" id="responsive_column_reverse">
                     <div class="col-md-6">
-                        <img class="img-responsive" src="images/digital-ventures.png" id="abt_img" />
+                        <img class="img-responsive wd_img" src="images/web-design-hero.jpg" id="abt_img" />
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 wd_text">
                         <h1 class="abt_h"> Web Design Company in Hyderabad </h1>
                         <p class="abt_p"> A website that looks nice but takes six seconds to load and confuses people on mobile isn't a good website — it's an expensive brochure nobody reads. We design and build sites that are fast, mobile-first, and set up to actually be found on Google, not just admired by whoever approved the mockup. </p>
                         <h2 class="abt_ssh"> Custom Website Design </h2>

@@ -23,6 +23,105 @@
     <link rel="stylesheet" href="plugins/css/main.css">
     <link rel="stylesheet" href="plugins/css/responsive.css">
 
+    <style>
+        /* Vertically align image + text columns on desktop/tablet-landscape */
+        @media (min-width: 992px) {
+            #about .row,
+            #collaborate .row,
+            #reseller .row,
+            #contact .row {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                align-items: center !important;
+            }
+
+            #responsive_column_reverse {
+                flex-direction: row !important;
+            }
+
+            /* About page: the text column is much taller than the image,
+               so align both to the top instead of floating the image mid-way */
+            #about .row {
+                align-items: flex-start !important;
+            }
+
+            #about .abt_h {
+                padding-top: 0 !important;
+            }
+
+            /* Bootstrap 3 clearfix pseudo-elements break flex rows */
+            #about .row:before,
+            #about .row:after,
+            #collaborate .row:before,
+            #collaborate .row:after,
+            #reseller .row:before,
+            #reseller .row:after,
+            #contact .row:before,
+            #contact .row:after {
+                display: none;
+            }
+
+            #about .col-md-6 > img,
+            #collaborate .col-md-6 > img,
+            #reseller .col-md-6 > img,
+            #contact .col-md-6 > img {
+                display: block;
+                margin: 0 auto;
+            }
+
+            /* Hidden vertical spacing on either column (or the image) shifts it
+               off the shared center line, so zero it for the two-column rows */
+            #about .col-md-6,
+            #collaborate .col-md-6,
+            #reseller .col-md-6,
+            #contact .col-md-6 {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+
+            #abt_v,
+            #abt_img {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            #about .col-md-6 > :first-child,
+            #collaborate .col-md-6 > :first-child,
+            #reseller .col-md-6 > :first-child,
+            #contact .col-md-6 > :first-child {
+                margin-top: 0 !important;
+            }
+
+            /* Hidden top/bottom spacing on the text column pushes it off-center,
+               so strip it from the first and last elements in each column */
+            #about .col-md-6 > :first-child,
+            #collaborate .col-md-6 > :first-child,
+            #reseller .col-md-6 > :first-child,
+            #contact .col-md-6 > :first-child {
+                margin-top: 0;
+            }
+
+            #about .col-md-6 > :last-child,
+            #collaborate .col-md-6 > :last-child,
+            #reseller .col-md-6 > :last-child,
+            #contact .col-md-6 > :last-child,
+            #about .col-md-6 > :last-child > *,
+            #collaborate .col-md-6 > :last-child > *,
+            #reseller .col-md-6 > :last-child > *,
+            #contact .col-md-6 > :last-child > * {
+                margin-bottom: 0;
+            }
+
+            #about .abt_btn,
+            #collaborate .abt_btn,
+            #reseller .abt_btn {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+
 </head>
 
 <body class="thetop">
@@ -62,7 +161,7 @@
                     <li class="active"><a href="about.html"> About Us </a></li>
                     <li><a href="web-design-services.html"> Web Design Services </a></li>
                     <li><a href="digital-marketing-services.html"> Digital Marketing Services </a></li>
-                    <li><a href="reseller-program.html">Reseller Program</a></li>
+                    <li><a href="reseller-program.html">Resellar Program</a></li>
                     <li><a href="digital-ventures.html">Digital Ventures</a></li>
                     <li><a href="portfolio.html"> Case Studies </a></li>
                     <li><a href="blog.html">Blog</a></li>
@@ -101,11 +200,7 @@
 
                 <div class="row" id="responsive_column_reverse">
                     <div class="col-md-6">
-                        <video width="100%" id="abt_v" height="" loop playsinline autoplay muted>
-                            <source src="videos/WEBZYTE-about-image.mp4" type="video/mp4">
-                            <!-- <source src="movie.ogg" type="video/ogg"> -->
-                            Your browser does not support the video tag.
-                        </video>
+                        <img src="images/5th%20image.jpeg" alt="About Webzyte" id="abt_v" style="width:100%; height:auto;">
                     </div>
                     <div class="col-md-6">
                         <h1 class="abt_h"> About Webzyte </h1>
@@ -121,9 +216,9 @@
                     </div>
                     <div class="col-md-12">
                         <h2 class="abt_ssh"> Our Team </h2>
-                        <p class="abt_p"> Webzyte is a team of 15+ designers, developers, and marketers — not a single freelancer wearing five hats, and not a revolving door of subcontractors either. The team is led by founder<strong>Krishna Teja</strong>. </p>
+                        <p class="abt_p"> Webzyte is a team of 15+ designers, developers, and marketers — not a single freelancer wearing five hats, and not a revolving door of subcontractors either. The team is led by founder <strong>Krishna Teja</strong>. </p>
                         <h2 class="abt_ssh"> Where We're Based </h2>
-                        <p class="abt_p"> Webzyte is headquartered at Vasant Nagar,<Strong>Hyderabad</Strong>, and works with clients both locally and remotely. </p>
+                        <p class="abt_p"> Webzyte is headquartered at Vasant Nagar, <strong>Hyderabad</strong>, and works with clients both locally and remotely. </p>
                         <a href="contact.html"><button class="abt_btn"> Get in touch with our team </button></a>
                     </div>
                 </div>
@@ -327,64 +422,64 @@
                                             <tbody>
 
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c7.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c8.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c9.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c10.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c11.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c12.jpg" id="c_logo" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c1.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c2.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c3.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c4.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c5.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c6.jpg" id="c_logo" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c5.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c6.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c4.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c3.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c7.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c4.jpg" id="c_logo" />
                                                     </div>
                                                 </div>
@@ -398,64 +493,64 @@
                                             <tbody>
 
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c1.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c2.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c3.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c4.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c5.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c6.jpg" id="c_logo" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c7.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c8.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c9.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c10.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c11.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c12.jpg" id="c_logo" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c5.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c6.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c4.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c3.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c7.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c4.jpg" id="c_logo" />
                                                     </div>
                                                 </div>
@@ -469,64 +564,64 @@
                                             <tbody>
 
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c7.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c8.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c9.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c10.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c11.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c12.jpg" id="c_logo" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c1.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c2.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c3.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c4.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c5.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c6.jpg" id="c_logo" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c5.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c6.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c4.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c3.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c7.jpg" id="c_logo" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-2 col-sm-4 col-xs-6">
                                                         <img class="img-responsive" src="images/c4.jpg" id="c_logo" />
                                                     </div>
                                                 </div>
@@ -556,7 +651,6 @@
                 </div>
             </div>
         </div>
-
 
 
     </div>
